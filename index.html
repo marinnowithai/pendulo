@@ -6,26 +6,28 @@
     <title>Pêndulo - Inovação & Transformação Digital</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-primary: #0A2647;
-            --color-secondary: #144272;
-            --color-accent: #FFA41B;
-            --color-light: #F8FAFC;
-            --gradient: linear-gradient(135deg, #0A2647 0%, #205295 100%);
+            --gradient-primary: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+            --gradient-card: linear-gradient(135deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+            --gradient-accent: linear-gradient(45deg, #FF6B6B, #FFE66D);
+            --color-dark: #2D3436;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background-color: var(--color-light);
-            color: #1E293B;
+            background: #FAFAFA;
+            color: var(--color-dark);
             line-height: 1.7;
         }
 
@@ -33,11 +35,11 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
-            padding: 1.25rem 0;
-            border-bottom: 1px solid rgba(10, 38, 71, 0.08);
+            padding: 1rem 0;
             z-index: 1000;
+            box-shadow: var(--shadow-sm);
         }
 
         .container {
@@ -55,8 +57,14 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--color-primary);
-            letter-spacing: -0.5px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
         }
 
         .nav-links {
@@ -66,35 +74,37 @@
         }
 
         .nav-links a {
-            color: #334155;
+            color: var(--color-dark);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.2s;
+            transition: all 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--color-accent);
+            transform: translateY(-2px);
+            opacity: 0.8;
         }
 
         .btn {
-            background-color: var(--color-primary);
+            background: var(--gradient-primary);
             color: white;
-            padding: 0.875rem 1.75rem;
-            border-radius: 8px;
+            padding: 1rem 2rem;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            box-shadow: var(--shadow-sm);
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(10, 38, 71, 0.15);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
         }
 
         .hero {
-            background: var(--gradient);
+            background: var(--gradient-card);
             padding: 10rem 0 6rem;
             text-align: center;
             color: white;
@@ -108,34 +118,28 @@
         .hero h1 {
             font-size: 3.5rem;
             line-height: 1.2;
-            font-weight: 700;
             margin-bottom: 1.5rem;
-            letter-spacing: -1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
         .hero p {
             font-size: 1.25rem;
             margin-bottom: 2.5rem;
-            color: #E2E8F0;
-            font-weight: 400;
-        }
-
-        .btn-accent {
-            background-color: var(--color-accent);
-            color: var(--color-primary);
+            opacity: 0.9;
         }
 
         .services {
             padding: 6rem 0;
+            background: #fff;
         }
 
         .section-title {
             text-align: center;
-            color: var(--color-primary);
             font-size: 2.5rem;
-            font-weight: 700;
             margin-bottom: 4rem;
-            letter-spacing: -0.5px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .services-grid {
@@ -147,26 +151,23 @@
         .service-card {
             background: white;
             padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(10, 38, 71, 0.05);
-            transition: all 0.3s;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .service-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 32px rgba(10, 38, 71, 0.08);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
         }
 
         .service-card h3 {
-            color: var(--color-primary);
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .service-card p {
-            color: #475569;
-            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .service-features {
@@ -179,39 +180,42 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #475569;
         }
 
-        .service-features li::before {
-            content: "→";
-            color: var(--color-accent);
-            font-weight: bold;
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            max-width: 500px;
+            margin: 0 auto;
         }
 
-        .cta {
-            padding: 6rem 0;
-            background: var(--color-light);
-        }
-
-        .cta-box {
-            background: var(--gradient);
-            padding: 4rem;
-            border-radius: 24px;
-            text-align: center;
-            color: white;
-        }
-
-        .cta-box h2 {
-            font-size: 2.5rem;
+        .form-group {
             margin-bottom: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
         }
 
-        .footer {
-            background: var(--color-primary);
-            color: white;
-            padding: 4rem 0;
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #4ECDC4;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(78,205,196,0.1);
         }
 
         @media (max-width: 768px) {
@@ -221,14 +225,6 @@
 
             .hero h1 {
                 font-size: 2.5rem;
-            }
-
-            .service-card {
-                padding: 2rem;
-            }
-
-            .cta-box {
-                padding: 2rem;
             }
         }
     </style>
@@ -240,8 +236,8 @@
                 <div class="logo">Pêndulo</div>
                 <div class="nav-links">
                     <a href="#servicos">Soluções</a>
-                    <a href="#sobre">Sobre</a>
-                    <a href="#contato" class="btn">Iniciar Projeto</a>
+                    <a href="#contato">Contato</a>
+                    <a href="#form" class="btn">Iniciar Projeto ✨</a>
                 </div>
             </div>
         </div>
@@ -250,58 +246,73 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Transforme sua empresa através da inovação</h1>
-                <p>Desenvolvemos soluções personalizadas em inovação, propriedade intelectual e transformação digital para impulsionar o crescimento do seu negócio</p>
-                <a href="#contato" class="btn btn-accent">Começar Agora →</a>
+                <h1>Inovação que transforma 🚀</h1>
+                <p>Desenvolvemos soluções para impulsionar o crescimento do seu negócio ✨</p>
+                <a href="#form" class="btn">Começar Agora 🌟</a>
             </div>
         </div>
     </section>
 
     <section class="services" id="servicos">
         <div class="container">
-            <h2 class="section-title">Como podemos ajudar</h2>
+            <h2 class="section-title">Nossas Soluções ⚡</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <h3>Inovação & Transformação Digital</h3>
-                    <p>Modernize sua empresa e destaque-se no mercado</p>
+                    <h3>🌈 Inovação Digital</h3>
+                    <p>Transforme sua empresa para o futuro</p>
                     <ul class="service-features">
-                        <li>Consultoria estratégica personalizada</li>
-                        <li>Implementação de cultura inovadora</li>
-                        <li>Transformação digital end-to-end</li>
-                        <li>Otimização de processos</li>
+                        <li>🎯 Consultoria estratégica</li>
+                        <li>🚀 Cultura de inovação</li>
+                        <li>💫 Transformação digital</li>
+                        <li>⚡ Otimização de processos</li>
                     </ul>
                 </div>
                 <div class="service-card">
-                    <h3>Propriedade Intelectual</h3>
-                    <p>Proteja e monetize suas inovações</p>
+                    <h3>🛡️ Propriedade Intelectual</h3>
+                    <p>Proteja suas inovações</p>
                     <ul class="service-features">
-                        <li>Registro de marcas e patentes</li>
-                        <li>Gestão estratégica de PI</li>
-                        <li>Proteção de ativos intelectuais</li>
-                        <li>Valoração de intangíveis</li>
+                        <li>✨ Registro de marcas</li>
+                        <li>💎 Gestão de patentes</li>
+                        <li>🔒 Proteção de ativos</li>
+                        <li>💫 Valoração IP</li>
                     </ul>
                 </div>
                 <div class="service-card">
-                    <h3>Captação de Recursos</h3>
-                    <p>Acesse as melhores oportunidades de investimento</p>
+                    <h3>💰 Captação de Recursos</h3>
+                    <p>Acelere seu crescimento</p>
                     <ul class="service-features">
-                        <li>Identificação de editais</li>
-                        <li>Estruturação de projetos</li>
-                        <li>Preparação de documentação</li>
-                        <li>Gestão de investimentos</li>
+                        <li>🎯 Editais e financiamentos</li>
+                        <li>📈 Projetos de inovação</li>
+                        <li>🌟 Gestão de investimentos</li>
+                        <li>🚀 Aceleração de negócios</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta" id="contato">
-        <div class="container">
-            <div class="cta-box">
-                <h2>Pronto para dar o próximo passo?</h2>
-                <p>Agende uma consulta gratuita e descubra como podemos transformar sua empresa</p>
-                <a href="#contato" class="btn btn-accent">Falar com Especialista →</a>
-            </div>
+    <section class="contact" id="form">
+        <div class="container" style="padding: 6rem 0;">
+            <h2 class="section-title">Vamos Conversar? 👋</h2>
+            <form name="contact" method="POST" class="contact-form" data-netlify="true">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" name="name" required placeholder="Seu nome completo" />
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required placeholder="seu@email.com" />
+                </div>
+                <div class="form-group">
+                    <label>Empresa</label>
+                    <input type="text" name="company" placeholder="Nome da sua empresa" />
+                </div>
+                <div class="form-group">
+                    <label>Mensagem</label>
+                    <textarea name="message" rows="4" required placeholder="Como podemos ajudar?"></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Enviar Mensagem ✨</button>
+            </form>
         </div>
     </section>
 </body>
